@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TextualMachine | Generative Writing Engine</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<header class="hero">
+
+    <nav>
+        <h2>TextualMachine</h2>
+
+        <div>
+            <a href="#create">Create</a>
+            <a href="#machine">The Machine</a>
+            <a href="#history">History</a>
+            <a href="#github">GitHub</a>
+        </div>
+    </nav>
+
+
+    <section>
+
+        <h1>
+            TextualMachine
+        </h1>
+
+        <p class="subtitle">
+            A generative writing engine built from fragments,
+            randomness and human imagination.
+        </p>
+
+
+        <p>
+            Originally created as an experimental JavaScript poetry
+            generator, rebuilt as a modern exploration of language,
+            patterns and digital creativity.
+        </p>
+
+
+        <button onclick="scrollToGenerator()">
+            Enter The Machine
+        </button>
+
+    </section>
+
+</header>
+
+
+
+<main>
+
+
+<section id="create" class="generator">
+
+<h2>Create Something</h2>
+
+
+<label>
+Your word:
+</label>
+
+<input 
+    id="wordInput"
+    type="text"
+    placeholder="Enter a word..."
+>
+
+
+
+<label>
+Theme:
+</label>
+
+<select id="theme">
+
+<option value="memory">
+Memory
+</option>
+
+<option value="dream">
+Dream
+</option>
+
+<option value="change">
+Change
+</option>
+
+<option value="identity">
+Identity
+</option>
+
+<option value="future">
+Future
+</option>
+
+</select>
+
+
+
+<label>
+Randomness:
+</label>
+
+
+<input 
+    type="range"
+    id="randomness"
+    min="1"
+    max="10"
+    value="5"
+>
+
+
+<button id="generate">
+Generate Text
+</button>
+
+
+
+<article id="output">
+
+Your generated text will appear here...
+
+</article>
+
+
+
+<div class="actions">
+
+<button>
+Copy
+</button>
+
+<button>
+Save
+</button>
+
+<button>
+Reveal Construction
+</button>
+
+</div>
+
+
+</section>
+
+
+
+
+<section id="machine">
+
+
+<h2>
+How The Machine Works
+</h2>
+
+
+<div class="flow">
+
+
+<div>
+<h3>1</h3>
+<p>Your Word</p>
+</div>
+
+
+<div>
+<h3>↓</h3>
+</div>
+
+
+<div>
+<h3>2</h3>
+<p>Phrase Library</p>
+</div>
+
+
+<div>
+<h3>↓</h3>
+</div>
+
+
+<div>
+<h3>3</h3>
+<p>Pattern Engine</p>
+</div>
+
+
+<div>
+<h3>↓</h3>
+</div>
+
+
+<div>
+<h3>4</h3>
+<p>Generated Text</p>
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="history">
+
+
+<h2>
+The Archive
+</h2>
+
+
+<p>
+
+The original TextualMachine was an early web experiment:
+hundreds of handwritten fragments combined through JavaScript
+to create unexpected relationships between words.
+
+</p>
+
+
+<button>
+Launch Retro Mode
+</button>
+
+
+</section>
+
+
+
+
+
+
+<section class="philosophy">
+
+
+<h2>
+The Idea Behind The Machine
+</h2>
+
+
+<p>
+
+Language is not only created word by word.
+Meaning emerges through connections, memory,
+context and unexpected combinations.
+
+</p>
+
+
+<p>
+
+TextualMachine explores the space between
+programming and poetry — where rules create
+possibilities rather than limitations.
+
+</p>
+
+
+</section>
+
+
+
+
+
+<section id="github">
+
+
+<h2>
+Built With
+</h2>
+
+
+<ul>
+
+<li>HTML5</li>
+<li>CSS3</li>
+<li>Modern JavaScript</li>
+<li>Generative text algorithms</li>
+<li>GitHub Pages</li>
+
+</ul>
+
+
+<p>
+
+View the source and follow the evolution of the project.
+
+</p>
+
+
+<a href="#">
+View GitHub Repository
+</a>
+
+
+</section>
+
+
+</main>
+
+
+
+
+
+<footer>
+
+<p>
+TextualMachine © 2026
+</p>
+
+<p>
+A reconstruction of an early generative writing experiment.
+</p>
+
+</footer>
+
+
+
+
+<script>
+
+function scrollToGenerator(){
+
+    document
+    .getElementById("create")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+
+<script src="phrases.js"></script>
+<script src="templates.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
