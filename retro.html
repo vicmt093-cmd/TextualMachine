@@ -1,11 +1,14 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
 
 <title>
-Trav's Java Page - Retro Mode
+Trav's TextualMachine - Retro Mode
 </title>
+
+<meta charset="UTF-8">
 
 <style>
 
@@ -26,6 +29,13 @@ body {
 h1 {
 
     color:#00ff00;
+
+}
+
+
+.subtitle {
+
+    color:#aaaaaa;
 
 }
 
@@ -51,11 +61,36 @@ button {
 
     padding:10px;
 
+    margin:5px;
+
+    cursor:pointer;
+
+}
+
+
+button:hover {
+
+    background:white;
+    color:black;
+
+}
+
+
+#para2 {
+
+    line-height:1.8;
+
+}
+
+
+a {
+
+    color:#00ff00;
+
 }
 
 
 </style>
-
 
 </head>
 
@@ -68,19 +103,28 @@ Trav's TextualMachine
 </h1>
 
 
-<p>
-Retro Mode — original experimental language engine
+<p class="subtitle">
+
+Retro Mode — reconstructed experimental language engine
+
 </p>
+
 
 
 <div class="box">
 
 
-<p id="retroText">
+<h2>
+The Machine
+</h2>
+
+
+<p id="para2">
 
 The machine is waiting...
 
 </p>
+
 
 
 <button onclick="generateRetro()">
@@ -90,6 +134,30 @@ Generate
 </button>
 
 
+<button onclick="generateChaos()">
+
+Chaos
+
+</button>
+
+
+<button onclick="reversePoem()">
+
+Reverse
+
+</button>
+
+
+<br><br>
+
+
+<a href="index.html">
+
+← Return to TextualMachine
+
+</a>
+
+
 </div>
 
 
@@ -97,60 +165,498 @@ Generate
 <script>
 
 
-const fragments = [
+/* =====================
+   ORIGINAL PHRASE BANK
+===================== */
 
-"essential usefulness",
 
-"the edge sustains",
+var myArray = [
 
-"beyond recall",
+" essential usefulness ",
+" its edge sustains ",
+" condition ",
+" underlines the loss ",
+" proves basic ",
+" withstanding basic ",
+" is remote from ",
+" almost new situation ",
+" likely to order basic "
 
-"condition",
+];
 
-"motion",
 
-"the cause of",
+var myArray1 = [
 
-"uninterrupted sequence",
+" far of ",
+" proof ",
+" might be destroyed ",
+" to prove ",
+" buried ",
+" takes the emphasis ",
+" almost new ",
+" order emphasis ",
+" as for that "
 
-"change with us",
+];
 
-"partial significance"
+
+var myArray2 = [
+
+" to the phases ",
+" wasting some ",
+" in direct communication ",
+" distant ",
+" other ",
+" makes wasteful ",
+" necessary practicality ",
+" underline of weird loss ",
+" it remaining "
+
+];
+
+
+var myArray3 = [
+
+" higher method ",
+" as order ",
+" sort of ",
+" not important ",
+" to the phases ",
+" remains wasteful ",
+" however it is buried ",
+" to be that ",
+" other things "
+
+];
+
+
+var myArray4 = [
+
+" eventually ",
+" seek ",
+" to love ",
+" it is special ",
+" cultivate the causes ",
+" present ",
+" of that seeking ",
+" which in its loss supports ",
+" several states presently "
+
+];
+
+
+var myArray5 = [
+
+" distant usefulness ",
+" substantial usefulness ",
+" important usefulness ",
+" search procedure ",
+" definite space ",
+" not to waste ",
+" distant condition ",
+" used condition ",
+" high contrary "
+
+];var myArray6 = [
+
+" ungrammatical ",
+" discontinuous later ",
+" be pleased ",
+" enquiry knowledge ",
+" physical sensibility ",
+" intend ",
+" incorrect ",
+" incomplete "
+
+];
+
+
+var myArray7 = [
+
+" beyond recall ",
+" distinction ",
+" intrinsically ",
+" connecting medium ",
+" distinguished increase ",
+" motion ",
+" beginning ",
+" rank ",
+" extent "
+
+];
+
+
+var myArray8 = [
+
+" faraway retrospective ",
+" project to exist ",
+" request at ",
+" executive agency ",
+" knowledge motion ",
+" be supported ",
+" the cause of ",
+" remember ",
+" uninterrupted sequence "
+
+];
+
+
+var myArray9 = [
+
+" moves here ",
+" nearly to change ",
+" it must be ",
+" change with us ",
+" for this purpose ",
+" are its designation ",
+" a certain inscription ",
+" with its base and parts ",
+" its partial significance "
 
 ];
 
 
 
+/* =====================
+   COMBINE ARRAYS
+===================== */
+
+
+var allArrays = [
+
+myArray,
+myArray1,
+myArray2,
+myArray3,
+myArray4,
+myArray5,
+myArray6,
+myArray7,
+myArray8,
+myArray9
+
+];
+
+
+
+var wordPool = [];
+
+
+
+for(
+var i = 0;
+i < allArrays.length;
+i++
+){
+
+    for(
+    var j = 0;
+    j < allArrays[i].length;
+    j++
+    ){
+
+        wordPool.push(
+            allArrays[i][j]
+        );
+
+    }
+
+}
+
+
+
+
+
+/* =====================
+   SHUFFLE ENGINE
+===================== */
+
+
+function shuffle(array){
+
+    for(
+    var i = array.length - 1;
+    i > 0;
+    i--
+    ){
+
+        var j =
+        Math.floor(
+            Math.random() *
+            (i + 1)
+        );
+
+
+        var temp =
+        array[i];
+
+
+        array[i] =
+        array[j];
+
+
+        array[j] =
+        temp;
+
+    }
+
+}
+
+
+
+
+/* =====================
+   RETRO GENERATOR
+===================== */
+
+
 function generateRetro(){
 
 
-let output="";
+    var pool =
+    wordPool.slice();
 
 
-for(let i=0;i<5;i++){
+    shuffle(pool);
 
-output += 
-fragments[
-Math.floor(
-Math.random()*fragments.length
-)
-]
-+" ";
+
+
+    var output = "";
+
+
+
+    var paragraphs =
+    Math.floor(
+        Math.random()*3
+    ) + 3;
+
+
+
+    for(
+    var p = 0;
+    p < paragraphs;
+    p++
+    ){
+
+
+        var sentence = "";
+
+
+
+        var length =
+        Math.floor(
+            Math.random()*6
+        ) + 5;
+
+
+
+        for(
+        var i = 0;
+        i < length;
+        i++
+        ){
+
+
+            sentence +=
+            pool.pop();
+
+
+        }
+
+
+
+        output +=
+
+        "<p>" +
+        sentence.trim() +
+        "</p>";
+
+
+
+    }
+
+
+
+    document.getElementById(
+        "para2"
+    ).innerHTML =
+    output;
+
 
 }
 
 
-document.getElementById(
-"retroText"
-).innerHTML = output;
+
+
+
+/* =====================
+   CHAOS MODE
+===================== */
+
+
+function generateChaos(){
+
+
+    var output = "";
+
+
+
+    for(
+    var i = 0;
+    i < 25;
+    i++
+    ){
+
+
+        var randomPhrase =
+
+        wordPool[
+            Math.floor(
+            Math.random() *
+            wordPool.length
+            )
+        ];
+
+
+
+        output +=
+        randomPhrase;
+
+
+    }
+
+
+
+    document.getElementById(
+        "para2"
+    ).innerHTML =
+
+    "<p>" +
+    output +
+    "</p>";
+
+}
+/* =====================
+   REVERSE MODE
+===================== */
+
+
+function reversePoem(){
+
+
+    var box =
+    document.getElementById(
+        "para2"
+    );
+
+
+
+    var paragraphs =
+    Array.from(
+        box.querySelectorAll("p")
+    );
+
+
+
+    paragraphs.reverse();
+
+
+
+    box.innerHTML = "";
+
+
+
+    paragraphs.forEach(
+        function(item){
+
+            box.appendChild(item);
+
+        }
+    );
 
 
 }
+
+
+
+
+
+/* =====================
+   ORIGINAL STYLE PROMPT
+   (RETRO INTERACTION)
+===================== */
+
+
+function originalPrompt(){
+
+
+    var word =
+    prompt(
+    "Enter a verb, noun or any word",
+    " "
+    );
+
+
+
+    if(!word){
+
+        word =
+        "existence";
+
+    }
+
+
+
+    var result = "";
+
+
+
+    for(
+    var i = 0;
+    i < 8;
+    i++
+    ){
+
+
+        result +=
+
+        wordPool[
+            Math.floor(
+            Math.random() *
+            wordPool.length
+            )
+        ]
+
+        +
+
+        " "
+
+        +
+
+        word;
+
+
+
+    }
+
+
+
+    document.getElementById(
+        "para2"
+    ).innerHTML =
+
+    "<p>" +
+    result +
+    "</p>";
+
+}
+
 
 
 </script>
 
 
 </body>
+
 
 </html>
