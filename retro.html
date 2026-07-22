@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+Trav's Java Page - Retro Mode
+</title>
+
+<style>
+
+body {
+
+    background:black;
+    color:white;
+
+    font-family:
+    "Courier New",
+    monospace;
+
+    padding:40px;
+
+}
+
+
+h1 {
+
+    color:#00ff00;
+
+}
+
+
+.box {
+
+    border:1px solid white;
+
+    padding:20px;
+
+    margin-top:30px;
+
+}
+
+
+button {
+
+    background:black;
+
+    color:white;
+
+    border:1px solid white;
+
+    padding:10px;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<h1>
+Trav's TextualMachine
+</h1>
+
+
+<p>
+Retro Mode — original experimental language engine
+</p>
+
+
+<div class="box">
+
+
+<p id="retroText">
+
+The machine is waiting...
+
+</p>
+
+
+<button onclick="generateRetro()">
+
+Generate
+
+</button>
+
+
+</div>
+
+
+
+<script>
+
+
+const fragments = [
+
+"essential usefulness",
+
+"the edge sustains",
+
+"beyond recall",
+
+"condition",
+
+"motion",
+
+"the cause of",
+
+"uninterrupted sequence",
+
+"change with us",
+
+"partial significance"
+
+];
+
+
+
+function generateRetro(){
+
+
+let output="";
+
+
+for(let i=0;i<5;i++){
+
+output += 
+fragments[
+Math.floor(
+Math.random()*fragments.length
+)
+]
++" ";
+
+}
+
+
+document.getElementById(
+"retroText"
+).innerHTML = output;
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
